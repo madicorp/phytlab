@@ -1,0 +1,36 @@
+version: '2'
+services:
+  mysql:
+    image: mysql:5.7.21
+    container_name: phytlab_db
+    environment:
+      - MYSQL_ROOT_PASSWORD=secret
+      - MYSQL_DATABASE=bookstack
+      - MYSQL_USER=bookstack
+      - MYSQL_PASSWORD=secret
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+  phytlab:
+    image: madicorp/phytlab
+    build:
+      context: .
+      dockerfile: docker/phytlab/Dockerfile
+    container_name: phytlab
+    depends_on:
+      - mysql
+    environment:
+      - DB_HOST=mysql:3306
+      - DB_DATABASE=bookstack
+      - DB_USERNAME=bookstack
+      - DB_PASSWORD=secret
+    volumes:
+      - uploads:/var/www/phytlab/public/uploads
+      - storage-uploads:/var/www/phytlab/public/storage
+    ports:
+      - "8080:80"
+
+volumes:
+  mysql-data:
+  uploads:
+  storage-uploads:
