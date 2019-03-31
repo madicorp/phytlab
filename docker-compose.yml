@@ -10,6 +10,8 @@ services:
       - MYSQL_PASSWORD=secret
     volumes:
       - mysql-data:/var/lib/mysql
+    ports:
+      - "3306:3306"
 
   phytlab:
     image: madicorp/phytlab

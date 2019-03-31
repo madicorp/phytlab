@@ -84,6 +84,7 @@ class BookController extends Controller
      * Display the specified book.
      * @param $slug
      * @return Response
+     * @throws \BookStack\Exceptions\NotFoundException
      */
     public function show($slug)
     {
@@ -104,6 +105,7 @@ class BookController extends Controller
      * Show the form for editing the specified book.
      * @param $slug
      * @return Response
+     * @throws \BookStack\Exceptions\NotFoundException
      */
     public function edit($slug)
     {
@@ -118,6 +120,7 @@ class BookController extends Controller
      * @param  Request $request
      * @param          $slug
      * @return Response
+     * @throws \BookStack\Exceptions\NotFoundException
      */
     public function update(Request $request, $slug)
     {
@@ -136,6 +139,7 @@ class BookController extends Controller
      * Shows the page to confirm deletion
      * @param $bookSlug
      * @return \Illuminate\View\View
+     * @throws \BookStack\Exceptions\NotFoundException
      */
     public function showDelete($bookSlug)
     {
@@ -149,6 +153,7 @@ class BookController extends Controller
      * Shows the view which allows pages to be re-ordered and sorted.
      * @param string $bookSlug
      * @return \Illuminate\View\View
+     * @throws \BookStack\Exceptions\NotFoundException
      */
     public function sort($bookSlug)
     {
@@ -165,6 +170,7 @@ class BookController extends Controller
      * Used via AJAX when loading in extra books to a sort.
      * @param $bookSlug
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @throws \BookStack\Exceptions\NotFoundException
      */
     public function getSortItem($bookSlug)
     {
@@ -178,6 +184,7 @@ class BookController extends Controller
      * @param  string $bookSlug
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @throws \BookStack\Exceptions\NotFoundException
      */
     public function saveSort($bookSlug, Request $request)
     {
@@ -248,6 +255,9 @@ class BookController extends Controller
      * Remove the specified book from storage.
      * @param $bookSlug
      * @return Response
+     * @throws \BookStack\Exceptions\NotFoundException
+     * @throws \BookStack\Exceptions\NotifyException
+     * @throws \Throwable
      */
     public function destroy($bookSlug)
     {
@@ -262,6 +272,7 @@ class BookController extends Controller
      * Show the Restrictions view.
      * @param $bookSlug
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @throws \BookStack\Exceptions\NotFoundException
      */
     public function showRestrict($bookSlug)
     {
@@ -277,9 +288,10 @@ class BookController extends Controller
     /**
      * Set the restrictions for this book.
      * @param $bookSlug
-     * @param $bookSlug
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @throws \BookStack\Exceptions\NotFoundException
+     * @throws \Throwable
      */
     public function restrict($bookSlug, Request $request)
     {
@@ -294,6 +306,8 @@ class BookController extends Controller
      * Export a book as a PDF file.
      * @param string $bookSlug
      * @return mixed
+     * @throws \BookStack\Exceptions\NotFoundException
+     * @throws \Throwable
      */
     public function exportPdf($bookSlug)
     {
@@ -306,6 +320,8 @@ class BookController extends Controller
      * Export a book as a contained HTML file.
      * @param string $bookSlug
      * @return mixed
+     * @throws \BookStack\Exceptions\NotFoundException
+     * @throws \Throwable
      */
     public function exportHtml($bookSlug)
     {
@@ -318,6 +334,7 @@ class BookController extends Controller
      * Export a book as a plain text file.
      * @param $bookSlug
      * @return mixed
+     * @throws \BookStack\Exceptions\NotFoundException
      */
     public function exportPlainText($bookSlug)
     {

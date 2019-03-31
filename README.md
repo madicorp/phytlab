@@ -75,9 +75,9 @@ This is a fork of [solidnerd/docker-bookstack](https://github.com/solidnerd/dock
 
 
 
-[build-badge]: https://travis-ci.org/madicorp/phytolab.svg?branch=master
-[build]: https://travis-ci.org/madicorp/phytolab
-[dependencyci-badge]: https://dependencyci.com/github/madicorp/phytolab/badge
-[dependencyci]: https://dependencyci.com/github/madicorp/phytolab
+[build-badge]: https://travis-ci.com/madicorp/phytlab.svg?branch=master
+[build]: https://travis-ci.org/madicorp/phytlab
+[dependencyci-badge]: https://dependencyci.com/github/madicorp/phytlab/badge
+[dependencyci]: https://dependencyci.com/github/madicorp/phytlab
 [license-badge]: https://img.shields.io/badge/License-GPLv3-blue.svg?style=flat
-[license]: https://github.com/madicorp/phytolab/blob/master/LICENSE.md
+[license]: https://github.com/madicorp/phytlab/blob/master/LICENSE.md
